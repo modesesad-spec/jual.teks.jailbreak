@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - RAT-GN</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;}
+        body{background:#0a0a0a;color:#e0e0e0;padding:40px 20px;}
+        .container{max-width:1000px;margin:0 auto;background:#111;padding:30px;border-radius:10px;border:1px solid #222;}
+        h1{color:#00ff88;margin-bottom:30px;}
+        table{width:100%;border-collapse:collapse;}
+        th{text-align:left;padding:12px;background:#1a1a1a;color:#00ff88;border-bottom:2px solid #333;}
+        td{padding:12px;border-bottom:1px solid #333;}
+        .master{color:#00ff88;font-weight:bold;}
+        .back{margin-top:20px;display:inline-block;color:#00ff88;text-decoration:none;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 ADMIN PANEL</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Saldo</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody">
+                <!-- Diisi JavaScript -->
+            </tbody>
+        </table>
+        <a href="dashboard.html" class="back">← Kembali ke Dashboard</a>
+    </div>
+
+    <script>
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const tbody = document.getElementById('userTableBody');
+        
+        users.forEach(user => {
+            const row = document.createElement('tr');
+            const roleClass = user.role === 'master' ? 'master' : '';
+            row.innerHTML = `
+                <td>${user.username}</td>
+                <td class="${roleClass}">${user.role.toUpperCase()}</td>
+                <td>Rp ${user.balance.toLocaleString()}</td>
+            `;
+            tbody.appendChild(row);
+        });
+    </script>
+</body>
+</html>

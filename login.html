@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - RAT-GN</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;}
+        body{background:#0a0a0a;display:flex;justify-content:center;align-items:center;min-height:100vh;}
+        .login-box{background:#111;padding:40px;border-radius:10px;width:380px;border:1px solid #222;}
+        h2{color:#00ff88;text-align:center;margin-bottom:30px;}
+        .form-group{margin-bottom:20px;}
+        label{display:block;margin-bottom:8px;color:#aaa;font-size:14px;}
+        input{width:100%;padding:12px;background:#1a1a1a;border:1px solid #333;border-radius:5px;color:#fff;font-size:16px;}
+        input:focus{outline:none;border-color:#00ff88;}
+        button{width:100%;padding:14px;background:#00ff88;color:#000;border:none;border-radius:5px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:10px;}
+        button:hover{background:#00cc66;}
+        .register-link{text-align:center;margin-top:25px;color:#aaa;}
+        .register-link a{color:#00ff88;text-decoration:none;}
+        .demo-account{margin-top:25px;padding:15px;background:#1a1a1a;border-radius:5px;border:1px solid #333;}
+        .demo-account p{color:#aaa;font-size:14px;margin-bottom:5px;}
+        .demo-account span{color:#00ff88;font-weight:bold;}
+        #errorMsg{color:#ff5555;text-align:center;margin-bottom:15px;font-size:14px;display:none;}
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>LOGIN</h2>
+        <div id="errorMsg"></div>
+        <form id="loginForm">
+            <div class="form-group">
+                <label>Username / Email</label>
+                <input type="text" id="username" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <div class="register-link">
+            Belum punya? <a href="register.html">Register</a>
+        </div>
+        <div class="demo-account">
+            <p><span>🔑 Akun Master:</span> sanzmodz / sanzmodz123</p>
+            <p><span>👤 Akun Demo:</span> user1 / user123</p>
+        </div>
+    </div>
+
+    <script>
+        // Data user default
+        const defaultUsers = [
+            {username: 'sanzmodz', email: 'master@ratgn.com', password: 'sanzmodz123', role: 'master', balance: 10000000},
+            {username: 'user1', email: 'user1@mail.com', password: 'user123', role: 'user', balance: 500000}
+        ];
+
+        // Init local storage
+        if(!localStorage.getItem('users')) {
+            localStorage.setItem('users', JSON.stringify(defaultUsers));
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            const users = JSON.parse(localStorage.getItem('users'));
+            const user = users.find(u => (u.username === username || u.email === username) && u.password === password);
+            
+            if(user) {
+                localStorage.setItem('currentUser', JSON.stringify({
+                    username: user.username,
+                    role: user.role,
+                    balance: user.balance
+                }));
+                window.location.href = 'dashboard.html';
+            } else {
+                document.getElementById('errorMsg').style.display = 'block';
+                document.getElementById('errorMsg').textContent = 'Username atau password salah!';
+            }
+        });
+    </script>
+</body>
+</html>
