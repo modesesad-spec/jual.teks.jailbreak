@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - RAT-GN DARK</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: #0a0a0a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .register-container {
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid #333;
+        }
+        
+        h2 {
+            color: #00ff88;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 15px;
+            background: #333;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        input::placeholder {
+            color: #999;
+        }
+        
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #00ff88;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        button:hover {
+            background: #00cc66;
+        }
+        
+        .error {
+            background: rgba(255,0,0,0.1);
+            border: 1px solid #ff3333;
+            color: #ff3333;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .success {
+            background: rgba(0,255,136,0.1);
+            border: 1px solid #00ff88;
+            color: #00ff88;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+        
+        .login-link a {
+            color: #00ff88;
+            text-decoration: none;
+        }
+        
+        .invite-note {
+            margin-top: 20px;
+            padding: 15px;
+            background: #222;
+            border-radius: 5px;
+            color: #999;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>⚡ REGISTER</h2>
+        
+        <div id="errorMsg" class="error" style="display:none;"></div>
+        <div id="successMsg" class="success" style="display:none;"></div>
+        
+        <form id="registerForm">
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <input type="text" id="invite" placeholder="Invite Code" required>
+            </div>
+            <button type="submit">REGISTER</button>
+        </form>
+        
+        <div class="login-link">
+            Sudah punya akun? <a href="login.html">Login</a>
+        </div>
+        
+        <div class="invite-note">
+            💀 Invite Code: SANZMODZ2024
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const invite = document.getElementById('invite').value;
+            
+            // CEK INVITE CODE
+            if(invite !== 'SANZMODZ2024') {
+                document.getElementById('errorMsg').style.display = 'block';
+                document.getElementById('errorMsg').textContent = 'Invite code salah!';
+                return;
+            }
+            
+            // AMBIL DATA USERS
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            
+            // CEK USERNAME DUPLIKAT
+            if(users.some(u => u.username === username)) {
+                document.getElementById('errorMsg').style.display = 'block';
+                document.getElementById('errorMsg').textContent = 'Username sudah digunakan!';
+                return;
+            }
+            
+            // TAMBAH USER BARU
+            users.push({
+                username: username,
+                email: email,
+                password: password,
+                role: 'user',
+                balance: 100000  // BONUS SALDO
+            });
+            
+            // SIMPAN KE LOCALSTORAGE
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            document.getElementById('successMsg').style.display = 'block';
+            document.getElementById('successMsg').textContent = 'Registrasi berhasil! Redirecting...';
+            
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

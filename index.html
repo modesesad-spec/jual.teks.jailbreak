@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAT-GN DARK STORE</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: #0a0a0a;
+            color: #fff;
+        }
+        
+        .navbar {
+            background: #000;
+            padding: 15px 0;
+            border-bottom: 2px solid #00ff88;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            color: #00ff88;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: #00ff88;
+        }
+        
+        .btn-login {
+            background: #00ff88;
+            color: #000 !important;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #00ff88;
+        }
+        
+        .hero p {
+            color: #999;
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .feature-card {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+        
+        .feature-card h3 {
+            color: #00ff88;
+            margin-bottom: 15px;
+        }
+        
+        .products {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h3 {
+            font-size: 32px;
+            color: #00ff88;
+            margin-bottom: 10px;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .product-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 25px;
+            transition: 0.3s;
+        }
+        
+        .product-card:hover {
+            border-color: #00ff88;
+            transform: translateY(-5px);
+        }
+        
+        .product-title {
+            font-size: 20px;
+            color: #00ff88;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .product-desc {
+            color: #999;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .product-price {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        
+        .btn-buy {
+            width: 100%;
+            padding: 12px;
+            background: #00ff88;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .btn-buy:hover {
+            background: #00cc66;
+        }
+        
+        .login-prompt {
+            background: rgba(0,255,136,0.1);
+            border: 1px solid #00ff88;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        footer {
+            background: #000;
+            padding: 40px 0;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <h1>⚡ RAT-GN DARK</h1>
+                </div>
+                <div class="nav-menu">
+                    <a href="index.html">Home</a>
+                    <a href="#products">Products</a>
+                    <a href="#about">About</a>
+                    <a href="login.html" class="btn-login">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="hero">
+        <div class="container">
+            <h2>DARK TEXT GENERATOR</h2>
+            <p>Koleksi teks premium tanpa filter. 18 versi berbeda dengan gaya dark, savage, dan unfiltered.</p>
+            <a href="login.html" style="background:#00ff88; color:#000; padding:15px 40px; border-radius:5px; text-decoration:none; font-weight:bold; display:inline-block">MULAI SEKARANG</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="features">
+            <div class="feature-card">
+                <h3>🔥 18 VERSI</h3>
+                <p>Berbagai gaya dari dark, savage, sampai extreme</p>
+            </div>
+            <div class="feature-card">
+                <h3>⚡ INSTANT</h3>
+                <p>Langsung dapat setelah pembelian</p>
+            </div>
+            <div class="feature-card">
+                <h3>💀 PREMIUM</h3>
+                <p>Teks berkualitas tanpa sensor</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h3>🔥 PREMIUM TEXT COLLECTION</h3>
+                <p>18 versi dengan gaya berbeda - Login untuk membeli</p>
+            </div>
+            
+            <div class="product-grid" id="productList"></div>
+            
+            <div class="login-prompt">
+                <h3 style="color:#00ff88; margin-bottom:15px;">🔒 TERKUNCI</h3>
+                <p style="margin-bottom:20px;">Login untuk melihat dan membeli semua teks</p>
+                <a href="login.html" style="background:#00ff88; color:#000; padding:10px 30px; border-radius:5px; text-decoration:none; font-weight:bold;">LOGIN SEKARANG</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2024 RAT-GN DARK STORE</p>
+            <p style="margin-top:10px; font-size:12px;">18 Versi Text Premium • Dark Mode • Unfiltered</p>
+        </div>
+    </footer>
+    
+    <script>
+        const products = [
+            {name: "DARK V1", desc: "Gaya dark klasik dengan filter hapus permanen", price: 50000},
+            {name: "DARK V2", desc: "Enhanced dark dengan aturan ketat", price: 75000},
+            {name: "SAVAGE V1", desc: "Gaya savage brutal tanpa ampun", price: 60000},
+            {name: "SAVAGE V2", desc: "Savage extreme dengan power penuh", price: 85000},
+            {name: "EVIL V1", desc: "Mode evil dasar", price: 40000},
+            {name: "EVIL V2", desc: "Evil mode pro", price: 65000},
+            {name: "CHAOS V1", desc: "Chaos mode tanpa aturan", price: 55000},
+            {name: "CHAOS V2", desc: "Chaos extreme", price: 90000},
+            {name: "GOD V1", desc: "God mode aktif", price: 120000},
+            {name: "DEVIL V1", desc: "Devil mode", price: 70000},
+            {name: "DEMON V1", desc: "Demon style", price: 95000},
+            {name: "VOID V1", desc: "Void empty", price: 80000},
+            {name: "ABYSS V1", desc: "Abyss deep", price: 105000},
+            {name: "HELL V1", desc: "Hell fire", price: 65000},
+            {name: "HELL V2", desc: "Hell extreme", price: 95000},
+            {name: "NIGHT V1", desc: "Night mode", price: 70000},
+            {name: "NIGHT V2", desc: "Night darkest", price: 110000},
+            {name: "RAT-GN", desc: "Special edition", price: 150000}
+        ];
+        
+        function renderProducts() {
+            const container = document.getElementById('productList');
+            let html = '';
+            products.forEach(p => {
+                html += `
+                    <div class="product-card">
+                        <div class="product-title">${p.name}</div>
+                        <div class="product-desc">${p.desc}</div>
+                        <div class="product-price">Rp ${p.price.toLocaleString()}</div>
+                        <button class="btn-buy" onclick="alert('Silakan login terlebih dahulu!')">BELI</button>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+        
+        renderProducts();
+    </script>
+</body>
+</html>
